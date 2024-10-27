@@ -1,4 +1,4 @@
-import NavLinks  from '@/app/ui/navlinks';
+import NavLinks  from '@/app/dashboard/navlinks';
 
 export default function SideNav() {
   return (
