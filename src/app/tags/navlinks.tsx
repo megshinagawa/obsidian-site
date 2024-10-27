@@ -27,7 +27,7 @@ export default function NavLinks() {
               },
             )}
             >
-            <p className="hidden md:block">{link.name.replace("-", " ")}</p>
+            <p className="hidden md:block">{link.name.replace(/-/g, " ")}</p>
           </Link>
         );
       })}
