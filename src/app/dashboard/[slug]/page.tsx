@@ -1,4 +1,4 @@
-// app/dashboard/[slug]/page.jsx
+
 import fs from 'fs';
 import path from 'path';
 
@@ -14,8 +14,8 @@ export async function generateStaticParams() {
 }
 
 // The component that renders the static page
-export default async function StaticPage({ params }) {
-  const { slug } = params; // Extract slug from params
+export default async function StaticPage({ params }: { params: { slug: string } }) { // Use 'params' (lowercase)
+  const { slug } = await params; // Destructure slug from params
   const filePath = path.join(process.cwd(), 'public', 'static-sites', `${slug}.html`);
 
   let content = '';

@@ -40,7 +40,7 @@ md.use(function(md) {
         const paragraphContent = new state.Token('inline', '', 0);
         
         // Construct the links for each tag
-        const links = tags.map(tag => `<a href="${tag}.html">${tag}</a>`);
+        const links = tags.map(tag => `<a href="/dashboard/${tag}.html">${tag}</a>`);
       
         // Assign the links array to the paragraphContent
         paragraphContent.content = links.join(', ');
@@ -154,7 +154,7 @@ md.use(function(md) {
 
                 // Create the link token
                 const linkOpen = new state.Token('link_open', 'a', 1);
-                linkOpen.attrs = [['href', `/${linkText}`]]; // Set the href for the link
+                linkOpen.attrs = [['href', `/dashboard/${linkText}`]]; // Set the href for the link
 
                 // Add the link text as a token
                 const linkContent = new state.Token('text', '', 0);
