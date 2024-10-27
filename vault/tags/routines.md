@@ -1,10 +1,5 @@
 ---
-type: tag 
-cssclasses: center-title
+type: tag
 ---
-
 # ROUTINES
-
-> Definition: 
-> A sequence of actions regularly followed
 

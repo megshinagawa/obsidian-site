@@ -1,9 +1,9 @@
 ---
-type: document 
-cssclasses: center-title
-topicaltags: 
-    - [[routines]]
-    - [[habits]]
+type: document
+cssclasses:
+  - center-title
+topicaltags:
+  - "[[routines]]"
 ---
 
 # MORNING ROUTINE 
