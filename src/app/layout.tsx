@@ -6,12 +6,15 @@ import SideNav from '@/app/ui/sidenav';
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
-        <header className='flex p-6 gap-4 items-center'>
+      <body className='text-black'>
+        <header className='flex pb-6 gap-2 items-center'>
           <Link href="/">
-            <Image src={"/mslogo.png"} width={40} height={40} alt='megshinagawa logo'/>
+            <Image src={"/mslogo.png"} width={30} height={30} alt='megshinagawa logo'/>
           </Link>
-          <h1 className='text-xl font-bold'>Meg&apos;s Second Brain</h1>
+          <Link href="/">
+            <h1 className='text-xl font-bold'>MEG&apos;S SECOND BRAIN</h1>
+          </Link>
+          
         </header>
 
         <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">

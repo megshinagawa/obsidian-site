@@ -2,6 +2,8 @@
  
 import Link from 'next/link';
 import notesList from '@/app/ui/pages.json';
+import { usePathname } from 'next/navigation';
+import clsx from 'clsx';
 
 const links = notesList.pages.map(page => {
   const name = page.replace('.html', '');
@@ -10,6 +12,7 @@ const links = notesList.pages.map(page => {
 
 
 export default function NavLinks() {
+  const pathname = usePathname();
   return (
     <>
       {links.map((link) => {
@@ -17,6 +20,12 @@ export default function NavLinks() {
           <Link 
             key={link.name}
             href={link.href}
+            className={clsx(
+              'flex h-[30px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-accentlight hover:text-accent md:flex-none md:justify-start md:p-2 md:px-3',
+              {
+                'bg-accentlight text-accent': pathname === link.href,
+              },
+            )}
             >
             <p className="hidden md:block">{link.name.replace("-", " ")}</p>
           </Link>
