@@ -8,4 +8,3 @@ cssclasses: center-title
 > Definition: 
 > A sequence of actions regularly followed
 
-[[habits]]

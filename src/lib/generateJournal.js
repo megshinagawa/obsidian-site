@@ -8,6 +8,12 @@ const outputDir = 'public/journal';
 // Ensure output directory is clean
 fs.emptyDirSync(outputDir);
 
+// Function to add /dashboard prefix to all internal links
+function prefixLinks(htmlContent) {
+  // Regular expression to match markdown-style links [text](url)
+  return htmlContent.replace(/href="(\/(?!dashboard\/|tags\/)[^"]*)"/g, 'href="/journal$1"');
+}
+
 
 // Recursively read all markdown files
 function generateSite() {
@@ -21,6 +27,9 @@ function generateSite() {
       const content = fs.readFileSync(filePath, 'utf-8');
       const { html, metadata } = processMarkdown(content);
 
+      // Apply /dashboard prefix to links in HTML content
+      const updatedHtml = prefixLinks(html);
+
       // Define output file
       const outputFilePath = path.join(outputDir, file.replace('.md', '.html'));
 
@@ -31,7 +40,7 @@ function generateSite() {
             <title>${metadata.title || 'Untitled'}</title>
           </head>
           <body>
-            ${html}
+            ${updatedHtml}
           </body>
         </html>
       `;

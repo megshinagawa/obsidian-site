@@ -1,7 +1,7 @@
 import fs from 'fs';
 
-const staticSitesDir = 'public/journal';
-const outputPath = 'src/app/ui/journals.json';
+const staticSitesDir = 'public/tags';
+const outputPath = 'src/app/ui/tags.json';
 
 // Read all HTML files from the output directory
 fs.readdir(staticSitesDir, (err, files) => {
@@ -17,7 +17,7 @@ fs.readdir(staticSitesDir, (err, files) => {
     if (err) {
       console.error('Error writing pages.json:', err);
     } else {
-      console.log('journals.json updated successfully');
+      console.log('tags.json updated successfully');
     }
   });
 });

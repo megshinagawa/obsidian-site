@@ -5,5 +5,4 @@ cssclasses: center-title
 
 # HABITS
 
-[[routines]]
 

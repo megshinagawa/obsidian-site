@@ -19,6 +19,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Link href="/dashboard">
               <p>NOTES</p>
             </Link>
+            <Link href="/tags">
+              <p>TAGS</p>
+            </Link>
             <Link href="/journal">
               <p>JOURNAL</p>
             </Link>

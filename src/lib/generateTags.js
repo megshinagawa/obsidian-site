@@ -2,8 +2,8 @@ import fs from 'fs-extra';
 import path from 'path';
 import { processMarkdown } from './parseMarkdown.js';
 
-const inputDir = 'vault';
-const outputDir = 'public/static-sites';
+const inputDir = 'vault/tags';
+const outputDir = 'public/tags';
 
 // Ensure output directory is clean
 fs.emptyDirSync(outputDir);
@@ -11,7 +11,7 @@ fs.emptyDirSync(outputDir);
 // Function to add /dashboard prefix to all internal links
 function prefixLinks(htmlContent) {
   // Regular expression to match markdown-style links [text](url)
-  return htmlContent.replace(/href="(\/(?!dashboard\/|tags\/)[^"]*)"/g, 'href="/dashboard$1"');
+  return htmlContent.replace(/href="(\/(?!tags\/)[^"]*)"/g, 'href="/tags$1"');
 }
 
 

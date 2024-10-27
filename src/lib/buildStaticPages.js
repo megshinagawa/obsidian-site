@@ -9,4 +9,7 @@ execSync('node ./src/lib/generatePagesJson.js', { stdio: 'inherit' });
 execSync('node ./src/lib/generateJournal.js', { stdio: 'inherit' });
 execSync('node ./src/lib/generateJournalsJson.js', { stdio: 'inherit' });
 
+execSync('node ./src/lib/generateTags.js', { stdio: 'inherit' });
+execSync('node ./src/lib/generateTagsJson.js', { stdio: 'inherit' });
+
 console.log('Static pages build process complete.');
