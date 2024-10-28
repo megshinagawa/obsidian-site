@@ -21,10 +21,10 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              'flex h-[30px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-accentlight hover:text-accent md:flex-none md:justify-start md:p-2 md:px-3',
               {
-                'bg-accentlight text-accent': pathname === link.href,
+                'text-accent !bg-accentlight': pathname === link.href,
               },
+              'flex h-auto grow items-center justify-center gap-2 rounded-md bg-gray p-3 text-sm font-medium hover:bg-accentlight hover:text-accent md:flex-none md:justify-start md:p-2 md:px-3'
             )}
             >
             <p className="hidden md:block">{link.name.replace(/-/g, " ")}</p>

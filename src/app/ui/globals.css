@@ -3,8 +3,52 @@
 @tailwind utilities;
 
 body {
-  padding: 3em;
+  padding: 0em;
   font-size: 1em;
-  line-height: 1.7;
+  /* line-height: 1.7em; */
 }
 
+h1 {
+  font-size: 1.5em;
+  color: #343434;
+}
+
+h2 {
+  font-size: 1.25em;
+  color: #343434;
+}
+
+h3 {
+  font-size: 1em;
+  color: #343434;
+}
+
+/* a {
+  color: #3AB09E;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  padding-bottom: 0.75em;
+  padding-top: 0.3em;
+}
+
+ol, ul {
+  padding-left: 1.5em;
+  padding-bottom: 0.75em;
+  padding-top: 0.3em;
+}
+
+ol > li {
+  list-style-type: decimal;
+  list-style-position: outside;
+}
+
+ul > li {
+  list-style-type: disc;
+  list-style-position: outside;
+} */

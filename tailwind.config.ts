@@ -11,8 +11,9 @@ const config: Config = {
       colors: {
         black: '#343434',
         white: '#ffffff',
-        accent: "#3AB09E",
-        accentlight: "#DBEEEB",
+        gray: "#f0f0f0",
+        accent: "#69a658",
+        accentlight: "#ebf2e9",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
@@ -21,3 +22,6 @@ const config: Config = {
   plugins: [],
 };
 export default config;
+
+
+

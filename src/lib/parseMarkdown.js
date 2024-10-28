@@ -17,6 +17,70 @@ function extractTagsFromBrackets(tags) {
     .filter(Boolean); // Remove empty strings
 }
 
+
+// Plugin to handle ![[image.png]] syntax for custom image rendering
+md.use(function(md) {
+  md.core.ruler.push('convert_image_syntax', function(state) {
+    // Loop through all tokens in the state
+    for (let i = 0; i < state.tokens.length; i++) {
+      const token = state.tokens[i];
+
+      // Check if the token type is 'inline' (where text content is processed)
+      if (token.type === 'inline') {
+        // Loop through the children of the inline token
+        for (let j = 0; j < token.children.length; j++) {
+          const childToken = token.children[j];
+
+          // Check if the child token type is 'text'
+          if (childToken.type === 'text') {
+            // Use regex to find ![[image.png]] syntax
+            const imagePattern = /!\[\[(.*?)\]\]/g;
+            const matches = childToken.content.match(imagePattern);
+
+            if (matches) {
+              // Create a new array to hold the modified children
+              const newChildren = [];
+              let lastIndex = 0;
+
+              // Process each match found
+              matches.forEach((match) => {
+                const imageName = match.slice(3, -2).trim(); // Get the text between ![[ and ]]
+
+                // Add the text before the image to the new children
+                const index = childToken.content.indexOf(match, lastIndex);
+                if (index > lastIndex) {
+                  newChildren.push(new state.Token('text', '', 0));
+                  newChildren[newChildren.length - 1].content = childToken.content.slice(lastIndex, index);
+                }
+
+                // Create the image token
+                const imageToken = new state.Token('html_inline', '', 0);
+                imageToken.content = `<img src="/${imageName}"/>`;
+
+                // Push the image token to the new children
+                newChildren.push(imageToken);
+
+                // Update the last index to track the end of the current match
+                lastIndex = index + match.length;
+              });
+
+              // Add the remaining text after the last image syntax to new children
+              if (lastIndex < childToken.content.length) {
+                newChildren.push(new state.Token('text', '', 0));
+                newChildren[newChildren.length - 1].content = childToken.content.slice(lastIndex);
+              }
+
+              // Replace original children with the new ones
+              token.children.splice(j, 1, ...newChildren);
+            }
+          }
+        }
+      }
+    }
+  });
+});
+
+
 // Custom plugin to insert topical tags as links at the top of the content
 md.use(function(md) {
   md.core.ruler.push('insert_topicaltags', function(state) {

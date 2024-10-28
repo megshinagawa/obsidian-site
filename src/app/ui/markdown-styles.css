@@ -1,25 +1,33 @@
-/* styles/markdown-styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 .markdown-content body {
   padding: 2em;
 }
 
 .markdown-content h1 {
-  font-size: 2.5em;
-  color: #343434;
-}
-
-.markdown-content h2 {
-  font-size: 1.75em;
-  color: #343434;
-}
-
-.markdown-content h3 {
   font-size: 1.5em;
   color: #343434;
 }
 
+.markdown-content h2 {
+  font-size: 1.25em;
+  color: #343434;
+}
+
+.markdown-content h3 {
+  font-size: 1em;
+  color: #343434;
+}
+
+.markdown-content img {
+  padding: 1.5em;
+}
+
 .markdown-content a {
-  color: #3AB09E;
+  color: #69a658;
   text-decoration: none;
 }
 
@@ -27,18 +35,25 @@
   text-decoration: underline;
 }
 
+.markdown-content p {
+  padding-bottom: 0.75em;
+  padding-top: 0.3em;
+}
+
 .markdown-content ol, ul {
   padding-left: 1.5em;
+  padding-bottom: 0.75em;
+  padding-top: 0.3em;
 }
 
 .markdown-content ol > li {
   list-style-type: decimal;
-  list-style-position: outside;
+  list-style-position: inside;
 }
 
 .markdown-content ul > li {
   list-style-type: disc;
-  list-style-position: outside;
+  list-style-position: inside;
 }
 
 .markdown-content code {
