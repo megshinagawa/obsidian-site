@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 body {
-  padding: 2em;
-
+  padding: 3em;
+  font-size: 1em;
+  line-height: 1.7;
 }
+

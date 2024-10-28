@@ -1,0 +1,49 @@
+/* styles/markdown-styles.css */
+.markdown-content body {
+  padding: 2em;
+}
+
+.markdown-content h1 {
+  font-size: 2.5em;
+  color: #343434;
+}
+
+.markdown-content h2 {
+  font-size: 1.75em;
+  color: #343434;
+}
+
+.markdown-content h3 {
+  font-size: 1.5em;
+  color: #343434;
+}
+
+.markdown-content a {
+  color: #3AB09E;
+  text-decoration: none;
+}
+
+.markdown-content a:hover {
+  text-decoration: underline;
+}
+
+.markdown-content ol, ul {
+  padding-left: 1.5em;
+}
+
+.markdown-content ol > li {
+  list-style-type: decimal;
+  list-style-position: outside;
+}
+
+.markdown-content ul > li {
+  list-style-type: disc;
+  list-style-position: outside;
+}
+
+.markdown-content code {
+  background: #f0f0f0;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}

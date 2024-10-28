@@ -28,7 +28,7 @@ export default async function StaticPage({ params }: { params: { slug: string } 
 
   return (
     <div>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <div className="markdown-content" dangerouslySetInnerHTML={{ __html: content }} />
     </div>
   );
 }

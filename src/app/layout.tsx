@@ -1,4 +1,5 @@
 import '@/app/ui/globals.css';
+import '@/app/ui/markdown-styles.css'
 import Image from 'next/image';
 import Link from 'next/link'
  
