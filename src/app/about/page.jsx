@@ -9,7 +9,7 @@ export default function About() {
         </div>
         <hr className='pb-1 pd-1'/>
         <div className='flex gap-10 items-center'>
-            <Image className='rounded-lg' src={"/pixelartdp.png"} alt='display picture' sizes="100vw" style={{width: '30%', height: '30%'}} width='100' height='100'/>  
+            <Image className='rounded-lg' src={"/pixelartdp.png"} alt='display picture' sizes="100vw" style={{width: '25%', height: '25%'}} width='100' height='100'/>  
             <div>
                 <h2 className='pt-3 pb-3'>ABOUT ME</h2>
                 <p className='pb-3 max-w-prose'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptates, earum animi 

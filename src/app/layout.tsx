@@ -38,7 +38,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </Link>
           </nav>
         </div>
-        <main className='pt-5 pl-10 pr-10'>{children}</main>
+        <div className='relative min-h-screen'>
+          <div className='pt-5 pb-32 px-10'>
+          {children}
+          </div>
+          <footer className='flex absolute w-full bottom-0 h-32 items-center bg-gray'>
+          </footer>
+        </div>
       </body>
     </html>
   )
