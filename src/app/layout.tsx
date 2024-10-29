@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { SCP } from '@/app/ui/fonts'
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
+import Footer from '@/app/footer';
  
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -42,8 +43,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className='pt-5 pb-32 px-10'>
           {children}
           </div>
-          <footer className='flex absolute w-full bottom-0 h-32 items-center bg-gray'>
-          </footer>
+          <div className='flex flex-col absolute w-full bottom-0 h-32 justify-center items-center bg-gray'>
+              <div>
+                <p>follow me on my socials!</p>
+                <div className='flex justify-center gap-5 p-3'>
+                  <Image src={"/mslogo.png"} width={30} height={30} alt='megshinagawa logo'/>
+                  <Image src={"/mslogo.png"} width={30} height={30} alt='megshinagawa logo'/>
+                  <Image src={"/mslogo.png"} width={30} height={30} alt='megshinagawa logo'/>
+                </div>
+              </div>
+              <div><Footer /></div>
+          </div>
         </div>
       </body>
     </html>

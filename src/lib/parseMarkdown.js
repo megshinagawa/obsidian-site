@@ -18,6 +18,58 @@ function extractTagsFromBrackets(tags) {
 }
 
 
+// Plugin to handle markdown checkboxes
+md.use(function(md) {
+  md.core.ruler.push('convert_checkboxes', function(state) {
+    // Loop through all tokens in the state
+    for (let i = 0; i < state.tokens.length; i++) {
+      const token = state.tokens[i];
+
+      // Check if the token is a list item
+      if (token.type === 'inline' && token.children) {
+        const childToken = token.children[0];
+
+        // Check if the child token is 'text' and contains a checkbox pattern
+        if (childToken && childToken.type === 'text') {
+          const content = childToken.content;
+
+          // Find the list_item_open token to add the "todo" class
+          const listItemToken = state.tokens[i - 2]; // Assumes "list_item_open" is just before "inline"
+
+          // Replace "- [ ]" with unchecked checkbox and add class "todo"
+          if (content.startsWith('[ ]')) {
+            childToken.content = content.slice(3).trim(); // Remove the "[ ]" part
+            const checkboxToken = new state.Token('html_inline', '', 0);
+            checkboxToken.content = `<input type="checkbox" disabled> `;
+            token.children.unshift(checkboxToken); // Insert checkbox at the beginning
+
+            // Add the "todo" class to the list item
+            if (listItemToken && listItemToken.type === 'list_item_open') {
+              listItemToken.attrJoin('class', 'todo');
+            }
+          }
+
+          // Replace "- [x]" with checked checkbox and add class "todo"
+          else if (content.startsWith('[x]')) {
+            childToken.content = content.slice(3).trim(); // Remove the "[x]" part
+            const checkboxToken = new state.Token('html_inline', '', 0);
+            checkboxToken.content = `<input type="checkbox" checked disabled> `;
+            token.children.unshift(checkboxToken); // Insert checkbox at the beginning
+
+            // Add the "todo" class to the list item
+            if (listItemToken && listItemToken.type === 'list_item_open') {
+              listItemToken.attrJoin('class', 'todo');
+            }
+          }
+        }
+      }
+    }
+  });
+});
+
+
+
+
 // Plugin to handle ![[image.png]] syntax for custom image rendering
 md.use(function(md) {
   md.core.ruler.push('convert_image_syntax', function(state) {
